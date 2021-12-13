@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	tea "github.com/charmbracelet/bubbletea"
+	"os"
 )
 
 type model struct {
@@ -99,6 +100,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 func main() {
 	p := tea.NewProgram(initialModel())
 	if err := p.Start(); err != nil {
-		fmt.Printf("Alas, there's been an e")
+		fmt.Printf("Alas, there's been an error: %v", err)
+		os.Exit(1)
 	}
 }
